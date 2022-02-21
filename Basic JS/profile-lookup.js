@@ -26,20 +26,7 @@ const contacts = [
   },
 ];
 
-// function lookUpProfile(name, prop) {
-//     // Only change code below this line
-//     for(let i=0; i < contacts.length; i++)
-//     {
-//       if(contacts[i]['firstName'] == name)
-//       {
-//         return contacts[i][prop];
-//         break;
-//       }
-//     }
-//     // Only change code above this line
-//   }
-
-  function lookUpProfile(name, prop){
+function lookUpProfile(name, prop){
     for(let i=0; i < contacts.length; i++)
     {
       if(contacts[i]['firstName'] === name)
@@ -54,6 +41,7 @@ const contacts = [
         }
       }
     }
+    //final stage call while getting no such existing contact
     return "No such contact";
 }
 
