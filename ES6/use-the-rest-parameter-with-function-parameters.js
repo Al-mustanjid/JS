@@ -1,0 +1,1 @@
+const sum = (...args) => args.reduce((previous, current)=>previous + current, 0);

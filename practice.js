@@ -319,3 +319,144 @@ console.log(doubler(4));
 
 const myContact = (arr1, arr2) => arr1.concat(arr2);
 console.log(myContact([1, 2], [3, 4, 5]));
+
+//Set Default Parameters for Your Functions
+const greeting = (name="anonymous") => "Hello " + name;
+console.log(greeting());
+console.log(greeting("Arif"));
+
+//Use the Rest Parameter with Function Parameters
+//take as much as parameter flexibly
+function restParameter(...args)
+{
+  return "You have passed " + args.length + " arguments";
+}
+let restParam = (...args)=>"You have passed " + args.length + " arguments."
+
+console.log(restParameter(1, [1, 2], {}));
+console.log(restParameter(1, [1, 2], {}, "rest"));
+console.log(restParam("10", 23, 34));
+//use reduce, map and filter to access the rest parameter element 
+const sumofvalue = (...args) => args.reduce((previous, current)=>previous + current);
+console.log(sumofvalue(1, 2, 3));
+
+//Use the Spread Operator to Evaluate Arrays In-Place
+//...arr can be used in place such as function or array literal
+const anArray = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
+let anArray2;
+anArray2 = [...anArray];
+console.log(anArray2);
+//Use Destructuring Assignment to Extract Values from Objects
+//ES5 destructing 
+const anObject = {name: "object", language:"js"};
+const objectName = anObject.name;
+const languagePerfer = anObject.language;
+
+//ES6 destructor
+const {name, language} = anObject;
+
+const HIGH_TEMPERATURES = {
+  yesterday: 75,
+  today: 77,
+  tomorrow: 80
+};
+
+// Only change code below this line
+  
+const {today: highToday, tomorrow:highTomorrow} = HIGH_TEMPERATURES;
+console.log(highToday);
+console.log(highTomorrow);
+// Only change code above this line
+
+//Use Destructuring Assignment to Assign Variables from Nested Objects
+const user = {
+  johnDoe: { 
+    age: 34,
+    email: 'johnDoe@freeCodeCamp.com'
+  }
+};
+
+const { johnDoe: { age, email }} = user;
+console.log(age);
+
+//Use Destructuring Assignment with the Rest Parameter to Reassign Array Elements
+const [a, b, ...arr] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+console.log(a, b);
+console.log(arr);
+
+const source = [1,2,3,4,5,6,7,8,9,10];
+function removeFirstTwo(list) {
+  // Only change code below this line
+  const [,,...arr] = list; // Change this line
+  // Only change code above this line
+  return arr;
+}
+const collectArray = removeFirstTwo(source);
+console.log(arr)
+
+//Use Destructuring Assignment to Pass an Object as a Function's Parameters
+let arif = {occupation: "Software Engineer", age:27, hobby:"singing"};
+const profileData = {occupation: "Software", age:29, hobby:"singing"};
+const profileUpdate = (profileData)=>{
+  const {occupation, age, hobby} = profileData;
+  arif = profileData;
+}
+//console.log(profileUpdate(arif));
+
+const stats = {
+  max: 56.78,
+  standard_deviation: 4.34,
+  median: 34.54,
+  mode: 23.87,
+  min: -0.75,
+  average: 35.85
+};
+
+// Only change code below this line
+const half = ({max, min}) => (max + min) / 2.0;
+console.log(half(stats));
+// Only change code above this line
+
+let aValue = 6;
+let changeValue = ()=>{
+  if(true)
+  {
+    let aValue = 12;
+    return aValue;
+  }
+}
+console.log(aValue);
+console.log(changeValue());
+
+//destructure 
+let anObj = {
+  name: "x",
+  age: 20,
+  hobby: "travel"
+}
+
+const {name: personName, age: personAge} = anObj;
+console.log(personName);
+
+let aNestedObj = {
+  john:{
+  age: 20,
+  hobby: "reading"
+},
+doe:{
+  age: 22,
+  hobby: "writing"
+}
+}
+
+let {john:{age:JohnAge, hobby: JohnHobby}, doe:{age:DoeAge}} = aNestedObj;
+console.log(JohnAge);
+console.log(JohnHobby);
+console.log(DoeAge);
+
+let its_a_array = [1, 2, 3 , 4, 5];
+let [item1, item2, ...itemCollection] = its_a_array;
+console.log(item1);
+console.log(item2);
+console.log(itemCollection);
+console.log(item1 + item2);
