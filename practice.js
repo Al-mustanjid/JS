@@ -460,3 +460,74 @@ console.log(item1);
 console.log(item2);
 console.log(itemCollection);
 console.log(item1 + item2);
+
+//Template Literals
+const person1 = {
+  name: "Arif",
+  age: 27
+};
+
+const greetings = `Hello, I am ${person1.name}! 
+I am ${person1.age} years old.`;
+console.log(greetings);
+
+const result = {
+  success: ["max-length", "no-amd", "prefer-arrow-functions"],
+  failure: ["no-var", "var-on-top", "linebreak"],
+  skipped: ["no-extra-semi", "no-dup-keys"]
+};
+
+function makeList(arr){
+  let failureItems = [];
+  for(let i=0; i < arr.length; i++)
+  {
+    failureItems.push(`<li class="text-warning">${arr[i]}</li>`);
+  }
+  return failureItems;
+}
+
+const failuresList = makeList(result.failure);
+console.log(failuresList);
+
+//Use class Syntax to Define a Constructor Function
+//ES5
+var SpaceShuttle = function(targetPlanet){
+  this.targetPlanet = targetPlanet;
+}
+
+var zeus = new SpaceShuttle("Jupiter");
+console.log(zeus);
+
+class Vegetable{
+  constructor(name){
+    this.name = name;
+  }
+}
+const carrot = new Vegetable("carrot");
+const bringal = new Vegetable("bringal");
+console.log(carrot);
+console.log(bringal.name);
+
+//class with getter and setter
+class Book{
+  constructor(author){
+    this._author = author;
+  }
+
+  //get writer
+  get writer()
+  {
+    return this._author;
+  }
+
+  //set or update writer
+  set writer(updateAuthor)
+  {
+    this._author = updateAuthor;
+  }
+}
+
+const novel = new Book("Anonymous");
+console.log(novel.writer);
+novel.writer = "theNewAuthor";
+console.log(novel.writer);
