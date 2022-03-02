@@ -531,3 +531,45 @@ const novel = new Book("Anonymous");
 console.log(novel.writer);
 novel.writer = "theNewAuthor";
 console.log(novel.writer);
+
+// Only change code below this line
+class Thermostat{
+  constructor(farenheit)
+  {
+    this._farenheit = farenheit;
+  }
+
+  get temp()
+  {
+    return 5/9 * (this._farenheit - 32);
+  }
+
+  set temp(clecius)
+  {
+    this._farenheit = (clecius * 9.0) / 5 + 32;;
+  }
+}
+// Only change code above this line
+
+const thermos = new Thermostat(76); // Setting in Fahrenheit scale
+let temp = thermos.temp; // 24.44 in Celsius
+console.log(temp)
+thermos.temp = 26;
+temp = thermos.temp; // 26 in Celsius
+console.log(temp);
+
+const myPromise = new Promise((resolve, reject)=>{
+  let serverResponse = false;
+  if(serverResponse)
+  {
+    resolve("Promise has successfully completed");
+  }else{
+    reject("Sorry promise could not make");
+  }
+})
+myPromise.then(result=>{
+  console.log(result);
+}, too=>{
+  console.log(too);
+})
+//console.log(myPromise);
