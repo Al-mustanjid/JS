@@ -573,3 +573,36 @@ myPromise.then(result=>{
   console.log(too);
 })
 //console.log(myPromise);
+
+const thisArray = [2, 4, "an array element", "another array element"];
+const [, , ...arrayCollection] = thisArray;
+let collectionOfArray = arrayCollection;
+console.log(collectionOfArray);
+
+const anotherObj = {name: "obj prop", age: 27};
+let objParamFunc = ({name})=>name;
+console.log(objParamFunc(anotherObj));
+
+function findLongestWordLength(str) {
+  let words = str.split(" ");
+  let longest = 0;
+  for(let i=0; i < words.length; i++)
+  {
+    if(longest < words[i].length)
+    {
+      longest = words[i].length;
+    }
+  }
+  return longest;
+}
+
+console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog"));
+
+//longest word in a string using array.reduce
+let longestWordInString = (str) => 
+  str.split(" ").reduce((longest, currentWord)=>
+  {
+   return currentWord.length > longest.length ? currentWord : longest
+  }, ' ') 
+
+console.log(longestWordInString("The quick brown fox jumped over the lazy dog").length);
