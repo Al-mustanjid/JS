@@ -606,3 +606,25 @@ let longestWordInString = (str) =>
   }, ' ') 
 
 console.log(longestWordInString("The quick brown fox jumped over the lazy dog").length);
+
+// function largestOfFour(arr) {
+//   for(let i=0; i < arr.length; i++)
+//   {
+//     for(let j=0; j < arr[i].length; j++)
+//     {
+//       console.log(arr[i][j]);
+//     }
+//   }
+//   //return arr;
+// }
+
+function largestOfFour(arr) {
+  let tempArr = [];
+  for(let i=0; i < arr.length; i++)
+  {
+    tempArr.push(Math.max(...arr[i]));
+  }
+  return tempArr;
+}
+
+console.log(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]));
