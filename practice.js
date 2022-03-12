@@ -628,3 +628,70 @@ function largestOfFour(arr) {
 }
 
 console.log(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]));
+
+function titleCase(str){
+  let splitWord = str.toLowerCase().split(' ');
+  for(let i=0; i < splitWord.length; i++)
+  {
+    splitWord[i] = splitWord[i].charAt(0).toUpperCase() + splitWord[i].substr(1);
+  }
+  return splitWord.join(' ');
+}
+console.log(titleCase('I am arif'));
+
+function frankenSplice(arr1, arr2, n) {
+  //first copy the second array using slice
+  let copyArray = arr2.slice();
+  for(let i=0; i < arr1.length; i++)
+  {
+    copyArray.splice(n, 0, arr1[i]);
+    n++;
+  }
+  return copyArray;
+}
+
+function frankenSplice1(arr1, arr2, n) {
+  //first copy the second array using slice
+  let copyArray = arr2.slice();
+  copyArray.splice(n,0,...arr1);
+  return copyArray;
+}
+
+console.log(frankenSplice([1, 2, 3], [4, 5, 6], 1));
+console.log(frankenSplice1([1, 2, 3], [4, 5, 6], 1));
+
+function bouncer(arr) {
+  //let filteredArray = [];
+  return arr.filter(value => !!value);
+}
+
+console.log(bouncer([7, "ate", "", false, 9]));
+console.log(bouncer([false, null, 0, NaN, undefined, ""]));
+
+function getIndexToIns(arr, num) {
+  arr.sort();
+  for(let i=0; i < arr.length; i++)
+  {
+    if(arr[i] > num || arr[i] === num)
+    {
+      return i;
+    }
+  }
+  return 0;
+}
+
+function mutation(arr) {
+  let search = arr[1].toLowerCase();
+  let text = arr[0].toLowerCase();
+  for(let i=0; i < search.length; i++)
+  {
+      if(text.indexOf(search[i]) < 0)
+      {
+        return false;
+      }
+  }
+  return true;
+}
+
+console.log(mutation(["Noel", "u"]));
+console.log('hello'.indexOf('llo'));
