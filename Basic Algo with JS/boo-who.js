@@ -1,9 +1,5 @@
 function booWho(bool) {
-  if(bool === true || bool === false)
-  {
-    return true;
-  }
-  return false;
+  return typeof bool == 'boolean';
 }
 
-booWho(null);
+console.log(booWho("true"));

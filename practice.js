@@ -695,3 +695,74 @@ function mutation(arr) {
 
 console.log(mutation(["Noel", "u"]));
 console.log('hello'.indexOf('llo'));
+console.log("Max Min");
+
+function miniMaxSum(arr) {
+  // Write your code here
+  let max = -Infinity;
+  let min = Infinity;
+  for (let i = 0; i < arr.length; i++) {
+      let sum = 0;
+      for (let j = 0; j < arr.length; j++) {
+          if ( i != j ) {
+              sum += arr[j];
+          }
+      }
+      console.log(sum);
+      if (sum < min) min = sum;
+      if (sum > max) max = sum;
+  }
+  console.log(min, max)
+}
+miniMaxSum([1, 2, 3, 4, 5]);
+
+function miniMaxSum1(arr) {
+  // Write your code here
+  var v = [...arr];
+  var max = -Infinity;
+  var min = Infinity;
+  for (var i = 0; i < v.length; i++) {
+      var sum = 0;
+      for (var j = 0; j < v.length; j++) {
+          if ( i != j ) {
+              sum += v[j];
+          }
+      }
+      if (sum < min) min = sum;
+      if (sum > max) max = sum;
+  }
+  console.log(min, max)
+}
+miniMaxSum1([1, 2, 3, 4, 5]);
+
+function Bird(name){
+  this.name = name;
+}
+
+Bird.prototype.numLegs = 4;
+
+let duck = new Bird("Duck");
+let tweet = new Bird("Tweety");
+
+let ownProp = [];
+let prototypeProps = [];
+for(let prop in duck){
+  if(duck.hasOwnProperty(prop)){
+    ownProp.push(prop);
+  }else{
+    prototypeProps.push(prop);
+  }
+}
+console.log(ownProp);
+console.log(prototypeProps);
+console.log(duck.constructor === Bird);
+
+function Dog(name) {
+  this.name = name;
+}
+
+// Only change code below this line
+function joinDogFraternity(candidate) {
+  return candidate.constructor === Dog? true:false;
+}
+console.log(joinDogFraternity('candidate'));
