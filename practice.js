@@ -739,11 +739,15 @@ function Bird(name){
   this.name = name;
 }
 
-Bird.prototype.numLegs = 4;
+Bird.prototype = {
+  numLegs: 2,
+  eat: ()=> console.log('nom nom nom'),
+  describe: ()=> console.log('My name is ' + this.name)
+}
 
 let duck = new Bird("Duck");
 let tweet = new Bird("Tweety");
-
+console.log(duck.describe);
 let ownProp = [];
 let prototypeProps = [];
 for(let prop in duck){
@@ -766,3 +770,20 @@ function joinDogFraternity(candidate) {
   return candidate.constructor === Dog? true:false;
 }
 console.log(joinDogFraternity('candidate'));
+console.log(typeof Bird);
+console.log("Obj " + Object.prototype.isPrototypeOf(Bird));
+
+function ParentObj() {};
+ParentObj.prototype = {
+  constructor: ParentObj,
+  parentFunc: function(){console.log("This is a parent function")}
+}
+
+function ChildObj(){};
+
+ChildObj.prototype = Object.create(ParentObj.prototype);
+ChildObj.prototype.constructor = ChildObj;
+let child = new ChildObj("A child");
+console.log('Type of child obj: ' + typeof child);
+console.log(child.parentFunc());
+console.log(child.constructor)
